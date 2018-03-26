@@ -16,7 +16,11 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return view('messages.index', [
+            'messages' => $messages,
+        ]);
     }
 
     /**
@@ -26,7 +30,11 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        $message = new Message;
+
+        return view('messages.create', [
+            'message' => $message,
+        ]);
     }
 
     /**
