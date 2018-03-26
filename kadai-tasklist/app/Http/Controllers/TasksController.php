@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Task;
 
 class TasksController extends Controller
 {
@@ -16,10 +17,10 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
+        $tasks = Task::all();
 
-        return view('messages.index', [
-            'messages' => $messages,
+        return view('tasks.index', [
+            'tasks' => $tasks,
         ]);
     }
 
@@ -30,10 +31,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        $message = new Message;
+        $task = new Task;
 
-        return view('messages.create', [
-            'message' => $message,
+        return view('tasks.create', [
+            'task' => $task,
         ]);
     }
 
@@ -60,10 +61,10 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        $message = Message::find($id);
+        $task = Task::find($id);
 
-        return view('messages.show', [
-            'message' => $message,
+        return view('tasks.show', [
+            'task' => $task,
         ]);
     }
 
